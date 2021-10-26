@@ -1,0 +1,5 @@
+{
+  "departmentName":"IT",
+  "departmentAddress":"1st floor Embassy",
+  "departmentCode" :"IT-D01"
+}

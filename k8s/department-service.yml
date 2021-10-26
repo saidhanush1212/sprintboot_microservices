@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: department-service-app
+  labels:
+    app: department-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: department-service-app
+  template:
+    metadata:
+      labels:
+        app: department-service-app
+    spec:
+      containers:
+        - name: department-service-app
+          image: saidhanush1212/department:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9002
+
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: department-service-svc
+spec:
+  selector:
+    app: department-service-app
+  ports:
+    - port:  80
+      targetPort:  9001
